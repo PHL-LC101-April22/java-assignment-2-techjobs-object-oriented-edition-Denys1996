@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class Job {
 
+    public Object getEmployer;
     private int id;
     private static int nextId = 1;
 
@@ -92,5 +93,34 @@ public class Job {
 
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
+    }
+
+    //Method ToString
+    @Override
+    public String toString() {
+        if(this.employer.toString().isEmpty() && this.location.toString().isEmpty() && this.positionType.toString().isEmpty() && this.coreCompetency.toString().isEmpty()) {
+            return "OOPS! This job does not seem to exist";
+        }
+        if(name.isEmpty()) {
+            this.name = "Data not available";
+        }
+        if(employer.toString().isEmpty()){
+            employer.setValue("Data not available");
+        }
+        if(location.toString().isEmpty()) {
+            location.setValue("Data not available");
+        }
+        if(positionType.toString().isEmpty()) {
+            positionType.setValue("Data not available");
+        }
+        if(coreCompetency.toString().isEmpty()) {
+            coreCompetency.setValue("Data not available");
+        }
+        return "\n" + "ID: " + this.id +
+                "\n" + "Name: " + this.name +
+                "\n" + "Employer: " + employer +
+                "\n" + "Location: " + this.location +
+                "\n" + "Position Type: " + this.positionType +
+                "\n" + "Core Competency: " + this.coreCompetency + "\n";
     }
 }
